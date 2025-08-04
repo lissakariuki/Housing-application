@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HousingLocationInfo} from './housing-location.model';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -107,5 +108,11 @@ export class HousingService {
         laundry: true,
       },
     ];
+  
+  getAllHousingLocations(): HousingLocationInfo[] {
+    return this.housingLocationList;
   }
-   
+  getHousingLocationById(id: number): HousingLocationInfo | undefined {
+    return this.housingLocationList.find((housingLocation) => housingLocation.id === id);
+  }  
+} 
